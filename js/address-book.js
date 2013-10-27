@@ -7,6 +7,7 @@
 function render(entries) {
     var template = $(".template");
     var addressBook = $(".address-book");
+    addressBook.hide();
     addressBook.empty();
     $.each(entries, function(){
         var newEntry = template.clone();
@@ -17,6 +18,7 @@ function render(entries) {
         newEntry.find(".pic").attr({"src": this.pic, "alt":"Picture of " + this.first + " " + this.last});
         newEntry.removeClass("template");
         addressBook.append(newEntry);
+        addressBook.fadeIn();
     });
         
 }

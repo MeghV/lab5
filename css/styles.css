@@ -36,3 +36,12 @@
 .person .details {
     padding-left: 120px;
 }
+
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+footer a{
+    width: 100%; ;
+}

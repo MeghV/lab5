@@ -36,7 +36,9 @@
             </div>
 
         </div> <!-- .container -->
-
+        <footer>
+            <a href="https://github.com/MeghV/lab5" class="btn btn-default" target="_blank">Check out my Repo!</a>
+        </footer>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
         <script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
         <script src="js/employees.js"></script>
@@ -46,16 +48,30 @@
                 sortObjArray(Employees.entries, attr);
                 render(Employees.entries);
             }
-            
             jQuery(function() {
                 sortAndRender("last");
             });
-
-            $(".sort-ui .btn").click(function(){
+            var buttons = $(".sort-ui .btn");
+            buttons.popover({
+                content: function() {
+                    return ('Click to Resort by ' + $(this).html());
+                },
+                container: 'body',
+                trigger: 'hover',
+                placement: 'bottom',
+                delay: {show: 300}
+            });
+            buttons.click(function(){
                 var sortBtn = $(this);
                 sortAndRender(sortBtn.attr('data-sortby'));
                 sortBtn.siblings(".active").removeClass("active");
                 sortBtn.addClass("active");
+            });
+            $("footer").popover({
+                content: "I've got some pretty cool stuff!",
+                container: 'body',
+                trigger: 'hover',
+                placement: 'auto'
             });
         </script>
 
