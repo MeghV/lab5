@@ -2,6 +2,24 @@
     this is where you will add your JavaScript to complete Lab 5
 */
 
+// Employees.entries[i.first];
+
+function render(entries) {
+    var template = $(".template");
+    var addressBook = $(".address-book");
+    addressBook.empty();
+    $.each(entries, function(){
+        var newEntry = template.clone();
+        newEntry.find(".first").html(this.first);
+        newEntry.find(".last").html(this.last);
+        newEntry.find(".title").html(this.title);
+        newEntry.find(".dept").html(this.dept);
+        newEntry.find(".pic").attr({"src": this.pic, "alt":"Picture of " + this.first + " " + this.last});
+        newEntry.removeClass("template");
+        addressBook.append(newEntry);
+    });
+        
+}
 
 /* sortObjArray()
     sorts an array of objects by a given property name
