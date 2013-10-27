@@ -36,6 +36,8 @@
             </div>
 
         </div> <!-- .container -->
+
+        <!-- footer linking to repo -->
         <footer>
             <a href="https://github.com/MeghV/lab5" class="btn btn-default" target="_blank">Check out my Repo!</a>
         </footer>
@@ -44,13 +46,18 @@
         <script src="js/employees.js"></script>
         <script src="js/address-book.js"></script>
         <script>
+            /* sorts employees alphabetically by last name on document load */
+            jQuery(function() {
+                sortAndRender("last");
+            });
+
+            /* function that sorts the object array and renders it */
             function sortAndRender(attr) {
                 sortObjArray(Employees.entries, attr);
                 render(Employees.entries);
             }
-            jQuery(function() {
-                sortAndRender("last");
-            });
+            
+            /* scripts to call functions related to buttons, like popover and resorting on click */
             var buttons = $(".sort-ui .btn");
             buttons.popover({
                 content: function() {
@@ -67,6 +74,8 @@
                 sortBtn.siblings(".active").removeClass("active");
                 sortBtn.addClass("active");
             });
+
+            /* popover on footer just to play around */
             $("footer").popover({
                 content: "I've got some pretty cool stuff!",
                 container: 'body',

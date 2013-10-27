@@ -2,8 +2,15 @@
     this is where you will add your JavaScript to complete Lab 5
 */
 
-// Employees.entries[i.first];
 
+/* render()
+    inputs the given employee data into the template
+    based on the type of information and if it has
+    a class in the template
+
+    entries        object with data to input
+
+*/
 function render(entries) {
     var template = $(".template");
     var addressBook = $(".address-book");
